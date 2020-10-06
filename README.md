@@ -4,11 +4,11 @@ This repo has my personalized version of [Pomatez](https://github.com/roldanjr/p
 
 ## My Personalized version
 
-[Timer](.github/assets/Timer.png)
+![Timer](.github/assets/Timer.png)
 
-[Config](.github/assets/Config.png)
+![Config](.github/assets/Config.png)
 
-[Settings](.github/assets/Settings.png)
+!Settings](.github/assets/Settings.png)
 
 ## Credits
 
