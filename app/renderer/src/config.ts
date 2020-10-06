@@ -13,13 +13,13 @@ type NavItemTypes = {
 };
 
 export const routes: NavItemTypes[] = [
-	{
-		icon: "task",
-		name: "Task List",
-		exact: false,
-		path: "/tasklist",
-		component: TaskList,
-	},
+	// {
+	// 	icon: "task",
+	// 	name: "Task List",
+	// 	exact: false,
+	// 	path: "/tasklist",
+	// 	component: TaskList,
+	// },
 	{
 		icon: "config",
 		name: "Config",

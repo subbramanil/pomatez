@@ -6,17 +6,17 @@ const ShortcutSection: React.FC = () => {
 	return (
 		<>
 			<SettingSection heading="Local Shortcut Keys">
-				<Shortcut
+				{/* <Shortcut
 					name="Escape Form / Popup"
 					shortcutKey="Press Esc"
 					id="escape-form-popup"
-				/>
+				/> */}
 				<Shortcut
 					name="Toggle Theme"
 					shortcutKey="Alt + Shift + T"
 					id="toggle-themes"
 				/>
-				<Shortcut name="Cut Text" shortcutKey="Cmd/Ctrl + X" id="cut-text" />
+				{/* <Shortcut name="Cut Text" shortcutKey="Cmd/Ctrl + X" id="cut-text" />
 				<Shortcut name="Copy Text" shortcutKey="Cmd/Ctrl + C" id="copy-text" />
 				<Shortcut
 					name="Paste Text"
@@ -37,7 +37,7 @@ const ShortcutSection: React.FC = () => {
 					name="Redo Action"
 					shortcutKey="Cmd/Ctrl + Shift + Z"
 					id="redo-action"
-				/>
+				/> */}
 			</SettingSection>
 			<SettingSection heading="Global Shortcut Key">
 				<Shortcut

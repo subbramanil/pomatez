@@ -4,9 +4,9 @@ import { StyledSettings } from "styles";
 import { Alert } from "components";
 
 import FeatureSection from "./FeatureSection";
-import HelpSection from "./HelpSection";
+// import HelpSection from "./HelpSection";
 import ShortcutSection from "./ShortcutSection";
-import StickySection from "./StickySection";
+// import StickySection from "./StickySection";
 import SettingHeader from "./SettingHeader";
 
 export default () => {
@@ -31,8 +31,8 @@ export default () => {
 			)}
 			<FeatureSection />
 			<ShortcutSection />
-			<HelpSection />
-			<StickySection />
+			{/* <HelpSection /> */}
+			{/* <StickySection /> */}
 		</StyledSettings>
 	);
 };

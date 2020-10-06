@@ -16,7 +16,7 @@ export default () => {
 	return (
 		<StyledTimer>
 			<Counter />
-			<PriorityCard />
+			{/* <PriorityCard /> */}
 			<Control resetTimerAction={onResetCallback} />
 		</StyledTimer>
 	);
