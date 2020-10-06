@@ -5,11 +5,11 @@
 	"license": "MIT",
 	"main": "./build/main.js",
 	"author": {
-		"name": "Roldan Montilla Jr",
-		"email": "roldanjrmontilla@gmail.com",
-		"url": "https://github.com/roldanjr"
+		"name": "Subbu Lakshmanan",
+		"email": "subbramanil@gmail.com",
+		"url": "https://github.com/subbramanil"
 	},
-	"repository": "https://github.com/roldanjr/pomatez",
+	"repository": "https://github.com/subbramanil/pomatez",
 	"description": "Attractive pomodoro timer for Windows, Mac, and Linux.",
 	"scripts": {
 		"prepare": "yarn build",
@@ -29,7 +29,7 @@
 	},
 	"build": {
 		"productName": "Pomatez",
-		"appId": "com.roldanjr.pomatez",
+		"appId": "com.subbramanil.pomatez",
 		"copyright": "Copyright © 2020 ${author}",
 		"files": [
 			"build"

@@ -1,5 +1,5 @@
 import { SVGTypes } from "components";
-import { TaskList, Config, Timer, Settings } from "routes";
+import { Config, Timer, Settings } from "routes";
 import { ConfigSliderProps } from "routes";
 
 export const APP_NAME = "Pomatez";

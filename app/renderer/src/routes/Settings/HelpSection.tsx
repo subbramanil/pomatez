@@ -14,26 +14,16 @@ const HelpSection: React.FC = () => {
 
 	return (
 		<SettingSection heading="Need Help ?">
-			<Help
-				label="Official website"
-				link="https://roldanjr.github.io/pomatez/"
-			/>
+			<Help label="Official website" link="https://subbramanil.github.io" />
 			<Help
 				label="Open an issue"
-				link="https://github.com/roldanjr/pomatez/issues"
+				link="https://github.com/subbramanil/pomatez/issues"
 			/>
 			<Help
 				label="Release notes"
-				link="https://github.com/roldanjr/pomatez/releases/latest"
+				link="https://github.com/subbramanil/pomatez/releases/latest"
 			/>
-			<Help
-				label="Support the app"
-				link="https://www.paypal.me/roldanjrDevsLife2020"
-			/>
-			<Help
-				label="Contact the developer"
-				link="mailto:roldanjrmontilla@gmail.com"
-			/>
+			<Help label="Contact the developer" link="mailto:subbramanil@gmail.com" />
 		</SettingSection>
 	);
 };

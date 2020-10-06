@@ -384,4 +384,4 @@ app.on("will-quit", () => {
 });
 
 app.setLoginItemSettings({ openAtLogin: true });
-app.setAppUserModelId("com.roldanjr.pomatez");
+app.setAppUserModelId("com.subbramanil.pomatez");

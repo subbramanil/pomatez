@@ -3,7 +3,7 @@ import { CounterContext } from "contexts";
 import { StyledTimer } from "styles";
 
 import Counter from "./Counter";
-import PriorityCard from "./PriorityCard";
+// import PriorityCard from "./PriorityCard";
 import Control from "./Control";
 
 export default () => {
