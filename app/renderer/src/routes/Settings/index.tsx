@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { getFromStorage, saveToStorage } from "utils";
+import React from "react";
+// import { getFromStorage, saveToStorage } from "utils";
 import { StyledSettings } from "styles";
-import { Alert } from "components";
+// import { Alert } from "components";
 
 import FeatureSection from "./FeatureSection";
 // import HelpSection from "./HelpSection";
@@ -10,14 +10,14 @@ import ShortcutSection from "./ShortcutSection";
 import SettingHeader from "./SettingHeader";
 
 export default () => {
-	const alertState = getFromStorage("alert") || null;
+	// const alertState = getFromStorage("alert") || null;
 
-	const [alert, setAlert] = useState(alertState);
+	// const [alert, setAlert] = useState(alertState);
 
 	return (
 		<StyledSettings>
 			<SettingHeader />
-			{alert === null && (
+			{/* {alert === null && (
 				<Alert
 					heading="Hello Friends,"
 					body="Please consider starring this project on GitHub to show 💙 and
@@ -28,7 +28,7 @@ export default () => {
 						setAlert("hide");
 					}}
 				/>
-			)}
+			)} */}
 			<FeatureSection />
 			<ShortcutSection />
 			{/* <HelpSection /> */}
