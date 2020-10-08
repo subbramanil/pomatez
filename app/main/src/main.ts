@@ -31,7 +31,7 @@ import {
 	getFromStorage,
 	createContextMenu,
 } from "./helpers";
-import { activateUser } from "./helpers/analytics";
+// import { activateUser } from "./helpers/analytics";
 import store from "./store";
 
 import "v8-compile-cache";
@@ -275,7 +275,7 @@ if (!onlySingleIntance) {
 			},
 		});
 	});
-	activateUser();
+	// activateUser();
 }
 
 ipcMain.on(SET_ALWAYS_ON_TOP, (e, { alwaysOnTop }) => {
