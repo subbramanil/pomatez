@@ -59,12 +59,12 @@ const getFrameHeight = () => {
 
 let tray: Tray | null = null;
 
-let win: BrowserWindow | null;
+let appWindow: BrowserWindow | null;
 
 let isFullScreen: boolean = false;
 
 function createMainWindow() {
-	win = new BrowserWindow({
+	appWindow = new BrowserWindow({
 		width: 340,
 		height: getFrameHeight(),
 		resizable: false,
@@ -81,26 +81,26 @@ function createMainWindow() {
 		},
 	});
 
-	win.loadURL(
+	appWindow.loadURL(
 		!onProduction
 			? "http://localhost:3000"
 			: `file://${path.join(__dirname, "index.html")}`
 	);
 
-	win.once("ready-to-show", () => {
-		win?.show();
+	appWindow.once("ready-to-show", () => {
+		appWindow?.show();
 	});
 
-	win.on(
+	appWindow.on(
 		"minimize",
 		debounce(
 			async () => {
 				try {
-					if (win) {
-						const data = await getFromStorage(win, "state");
+					if (appWindow) {
+						const data = await getFromStorage(appWindow, "state");
 						if (data.settings.minimizeToTray) {
 							if (!isFullScreen) {
-								win?.hide();
+								appWindow?.hide();
 								if (tray === null && data.settings.minimizeToTray) {
 									createSystemTray();
 								}
@@ -116,19 +116,19 @@ function createMainWindow() {
 		)
 	);
 
-	win.on(
+	appWindow.on(
 		"close",
 		debounce(
 			async (e) => {
 				e.preventDefault();
 				try {
-					if (win) {
-						const data = await getFromStorage(win, "state");
+					if (appWindow) {
+						const data = await getFromStorage(appWindow, "state");
 						if (!data.settings.closeToTray) {
 							app.exit();
 						} else {
 							if (!isFullScreen) {
-								win?.hide();
+								appWindow?.hide();
 								if (tray === null && data.settings.closeToTray) {
 									createSystemTray();
 								}
@@ -144,22 +144,22 @@ function createMainWindow() {
 		)
 	);
 
-	win.on("closed", () => {
-		win = null;
+	appWindow.on("closed", () => {
+		appWindow = null;
 	});
 
-	createContextMenu(win);
+	createContextMenu(appWindow);
 }
 
 const trayTooltip = "Just click to restore.";
 
 const contextMenu = Menu.buildFromTemplate([
-	{
-		label: "Restore the app",
-		click: () => {
-			win?.show();
-		},
-	},
+	// {
+	// 	label: "Restore the app",
+	// 	click: () => {
+	// 		appWindow?.show();
+	// 	},
+	// },
 	{
 		label: "Exit",
 		click: () => {
@@ -175,11 +175,11 @@ function createSystemTray() {
 	tray.setContextMenu(contextMenu);
 
 	tray?.on("click", () => {
-		if (!win?.isVisible()) {
-			win?.show();
+		if (!appWindow?.isVisible()) {
+			appWindow?.show();
 		} else {
-			if (!win?.isFullScreen()) {
-				win?.hide();
+			if (!appWindow?.isFullScreen()) {
+				appWindow?.hide();
 			}
 		}
 	});
@@ -189,13 +189,13 @@ if (!onlySingleIntance) {
 	app.quit();
 } else {
 	app.on("second-instance", () => {
-		if (win) {
-			if (win.isMinimized()) {
-				win.restore();
-			} else if (!win.isVisible()) {
-				win.show();
+		if (appWindow) {
+			if (appWindow.isMinimized()) {
+				appWindow.restore();
+			} else if (!appWindow.isVisible()) {
+				appWindow.show();
 			} else {
-				win.focus();
+				appWindow.focus();
 			}
 		}
 	});
@@ -204,14 +204,14 @@ if (!onlySingleIntance) {
 		createMainWindow();
 
 		if (onProduction) {
-			if (win) {
+			if (appWindow) {
 				const blockKeys = [
 					"CommandOrControl+R",
 					"CommandOrControl+Shift+R",
 					"CommandOrControl+Alt+Q",
 					"F11",
 				];
-				blockShortcutKeys(win, blockKeys);
+				blockShortcutKeys(appWindow, blockKeys);
 			}
 		}
 
@@ -219,13 +219,19 @@ if (!onlySingleIntance) {
 			{
 				key: "Alt+Shift+H",
 				callback: () => {
-					win?.hide();
+					appWindow?.hide();
 				},
 			},
 			{
 				key: "Alt+Shift+S",
 				callback: () => {
-					win?.show();
+					appWindow?.show();
+				},
+			},
+			{
+				key: "CommandOrControl+Q", // Only on mac
+				callback: () => {
+					app.exit();
 				},
 			},
 		]);
@@ -273,26 +279,26 @@ if (!onlySingleIntance) {
 }
 
 ipcMain.on(SET_ALWAYS_ON_TOP, (e, { alwaysOnTop }) => {
-	win?.setAlwaysOnTop(alwaysOnTop);
+	appWindow?.setAlwaysOnTop(alwaysOnTop);
 });
 
 ipcMain.on(SET_FULLSCREEN_BREAK, (e, args) => {
 	const { shouldFullscreen, alwaysOnTop } = args;
 
 	if (shouldFullscreen) {
-		win?.show();
-		win?.focus();
-		win?.setAlwaysOnTop(true, "screen-saver");
-		win?.setSkipTaskbar(true);
-		win?.setResizable(true);
-		win?.setFullScreen(true);
-		win?.setVisibleOnAllWorkspaces(true);
+		appWindow?.show();
+		appWindow?.focus();
+		appWindow?.setAlwaysOnTop(true, "screen-saver");
+		appWindow?.setSkipTaskbar(true);
+		appWindow?.setResizable(true);
+		appWindow?.setFullScreen(true);
+		appWindow?.setVisibleOnAllWorkspaces(true);
 
 		globalShortcut.unregister("Alt+Shift+H");
 
-		if (!win?.isVisible()) {
-			win?.show();
-			win?.focus();
+		if (!appWindow?.isVisible()) {
+			appWindow?.show();
+			appWindow?.focus();
 		}
 
 		isFullScreen = shouldFullscreen;
@@ -306,18 +312,18 @@ ipcMain.on(SET_FULLSCREEN_BREAK, (e, args) => {
 			])
 		);
 	} else {
-		win?.setAlwaysOnTop(alwaysOnTop, "screen-saver");
+		appWindow?.setAlwaysOnTop(alwaysOnTop, "screen-saver");
 
-		win?.setSkipTaskbar(false);
-		win?.setFullScreen(false);
-		win?.setResizable(false);
-		win?.setVisibleOnAllWorkspaces(false);
+		appWindow?.setSkipTaskbar(false);
+		appWindow?.setFullScreen(false);
+		appWindow?.setResizable(false);
+		appWindow?.setVisibleOnAllWorkspaces(false);
 
 		globalShortcut.register("Alt+Shift+H", () => {
-			win?.hide();
+			appWindow?.hide();
 		});
 
-		if (win?.isFullScreen()) win?.setFullScreen(false);
+		if (appWindow?.isFullScreen()) appWindow?.setFullScreen(false);
 
 		isFullScreen = shouldFullscreen;
 
@@ -331,15 +337,15 @@ ipcMain.on(SET_UI_THEME, (e, { isDarkMode }) => {
 });
 
 ipcMain.on(SET_SHOW, () => {
-	if (!win?.isVisible()) {
-		win?.show();
+	if (!appWindow?.isVisible()) {
+		appWindow?.show();
 	} else {
-		win?.focus();
+		appWindow?.focus();
 	}
 });
 
 ipcMain.on(SET_MINIMIZE, (e, { minimizeToTray }) => {
-	win?.minimize();
+	appWindow?.minimize();
 	if (tray === null && minimizeToTray) {
 		createSystemTray();
 	}
