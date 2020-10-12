@@ -228,12 +228,6 @@ if (!onlySingleIntance) {
 					appWindow?.show();
 				},
 			},
-			{
-				key: "CommandOrControl+Q", // Only on mac
-				callback: () => {
-					app.exit();
-				},
-			},
 		]);
 
 		const autoUpdater = activateAutoUpdate({
