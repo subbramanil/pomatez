@@ -82,6 +82,38 @@ export const StyledPriorityCardWrapper = styled.div`
 	background-color: var(--color-bg-secondary);
 `;
 
+export const StyledCurrentTaskContainer = styled.div`
+	width: 100%;
+	height: 5.6rem;
+
+	padding: 0 1.6rem;
+`;
+
+export const StyledCurrentTaskWrapper = styled.div`
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0.5rem 1rem;
+
+	border-radius: 3px;
+	border: 1px solid var(--color-border-secondary);
+	background-color: var(--color-bg-secondary);
+`;
+
+export const StyledCurrentTask = styled.h3`
+	padding: 0.1rem;
+	font-size: 1.4rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: var(--color-heading-text);
+`;
+
 export const StyledPriorityCardHeader = styled.header``;
 
 export const StyledPriorityCardHeading = styled.h4`

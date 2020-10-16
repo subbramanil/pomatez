@@ -3,8 +3,8 @@ import { CounterContext } from "contexts";
 import { StyledTimer } from "styles";
 
 import Counter from "./Counter";
-// import PriorityCard from "./PriorityCard";
 import Control from "./Control";
+import CurrentTask from "./Focus/CurrentFocus";
 
 export default () => {
 	const { resetTimerAction } = useContext(CounterContext);
@@ -16,7 +16,7 @@ export default () => {
 	return (
 		<StyledTimer>
 			<Counter />
-			{/* <PriorityCard /> */}
+			<CurrentTask />
 			<Control resetTimerAction={onResetCallback} />
 		</StyledTimer>
 	);
