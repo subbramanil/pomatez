@@ -87,6 +87,8 @@ function createMainWindow() {
 			: `file://${path.join(__dirname, "index.html")}`
 	);
 
+	appWindow.webContents.openDevTools();
+
 	appWindow.once("ready-to-show", () => {
 		appWindow?.show();
 	});
