@@ -81,13 +81,15 @@ function createMainWindow() {
 		},
 	});
 
+	if (!onProduction) {
+		appWindow.webContents.openDevTools();
+	}
+
 	appWindow.loadURL(
 		!onProduction
 			? "http://localhost:3000"
 			: `file://${path.join(__dirname, "index.html")}`
 	);
-
-	appWindow.webContents.openDevTools();
 
 	appWindow.once("ready-to-show", () => {
 		appWindow?.show();
