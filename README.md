@@ -1,12 +1,18 @@
 # Goal
 
+tl;dr. The goal of the app is to provide a **minimal Pomodoro timer** Jump to [Flow of the app](#flow-of-the-app)
+
+---
+
+## Long version
+
 It started with the want to have a minimal Pomodoro app. A simple app lets me configure the intervals, run the timer, and provide notifications. I started by checking the available Pomodoro apps in the app store. However, most of the apps make money by tracking the activities & selling the usage data. While I understand the developers of those who have to make money, I wasn't ready to share my data like many others. So I didn't go with any of the apps available in the app store. Moreover, the app store's apps have too many features, which I wasn't looking for.
 
 My next immediate step was to identify any _open-source_ apps available in **GitHub**. I evaluated a few and finally arrived at [Pomatez](https://github.com/roldanjr/pomatez), which fits the requirements. It's simple to use, has configurable timers, provides notifications & it didn't collect any usage data other than the number of users. One additional feature was the in-built `task-list,` allowing the user to create task lists and the drag and drop to change the task priorities. It was a well-designed feature and attractive to people who want to use one app for managing todos & Pomodoro timer. However, I already have a workflow to manage my todos, and I didn't like introducing one more app to the mix. Luckily **Pomatez** is an open-source project, thanks to [Rolden Montilla Jr](https://github.com/roldanjr). So I opted to modify the app to suit the minimalistic needs.
 
 The goal of the app is to provide a **minimal Pomodoro timer**
 
-So the flow of the app is simple,
+## Flow of the app
 
 1. Assume the User has their own preferred app/workflow to manage **todo**
 2. Pomatez app provides a text box to enter the task the user wants to start
