@@ -2,6 +2,8 @@
 
 tl;dr. The goal of the app is to provide a **minimal Pomodoro timer** Jump to [Flow of the app](#flow-of-the-app)
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 ---
 
 ## Long version
