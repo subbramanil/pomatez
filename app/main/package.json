@@ -10,7 +10,7 @@
 		"url": "https://github.com/subbramanil"
 	},
 	"repository": "https://github.com/subbramanil/pomatez",
-	"description": "Attractive pomodoro timer for Windows, Mac, and Linux.",
+	"description": "A Minimal pomodoro timer for Windows, Mac, and Linux.",
 	"scripts": {
 		"prepare": "yarn build",
 		"clean": "rimraf dist/ build/",

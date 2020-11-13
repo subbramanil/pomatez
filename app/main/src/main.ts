@@ -42,7 +42,7 @@ const notificationIcon = path.join(__dirname, "./assets/notification-dark.png");
 
 const trayIcon = path.join(__dirname, "./assets/tray-dark.png");
 
-const onlySingleIntance = app.requestSingleInstanceLock();
+const onlySingleInstance = app.requestSingleInstanceLock();
 
 Menu.setApplicationMenu(null);
 
@@ -70,7 +70,7 @@ function createMainWindow() {
 		resizable: false,
 		maximizable: false,
 		show: false,
-		frame: store.get("useNativeTitlebar"),
+		frame: store.get("useNativeTitleBar"),
 		icon: getIcon(),
 		backgroundColor: store.get("isDarkMode") ? "#141e25" : "#fff",
 		webPreferences: {
@@ -189,7 +189,7 @@ function createSystemTray() {
 	});
 }
 
-if (!onlySingleIntance) {
+if (!onlySingleInstance) {
 	app.quit();
 } else {
 	app.on("second-instance", () => {
@@ -356,9 +356,9 @@ ipcMain.on(SET_CLOSE, (e, { closeToTray }) => {
 	}
 });
 
-ipcMain.on(SET_NATIVE_TITLEBAR, (e, { useNativeTitlebar }) => {
-	if (store.get("useNativeTitlebar") !== useNativeTitlebar) {
-		store.set("useNativeTitlebar", useNativeTitlebar);
+ipcMain.on(SET_NATIVE_TITLEBAR, (e, { useNativeTitleBar }) => {
+	if (store.get("useNativeTitleBar") !== useNativeTitleBar) {
+		store.set("useNativeTitleBar", useNativeTitleBar);
 		setTimeout(() => {
 			app.relaunch();
 			app.exit();
