@@ -8,7 +8,7 @@
 		"email": "subbramanil@gmail.com",
 		"url": "https://github.com/subbramanil"
 	},
-	"description": "Attractive pomodoro timer for Windows, Mac, and Linux.",
+	"description": "A minimal pomodoro timer for Windows, Mac, and Linux.",
 	"homepage": "./",
 	"scripts": {
 		"clean": "rimraf build/",

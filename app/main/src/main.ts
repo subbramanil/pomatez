@@ -70,7 +70,7 @@ function createMainWindow() {
 		resizable: false,
 		maximizable: false,
 		show: false,
-		frame: store.get("useNativeTitleBar"),
+		frame: store.get("useNativeTitlebar"),
 		icon: getIcon(),
 		backgroundColor: store.get("isDarkMode") ? "#141e25" : "#fff",
 		webPreferences: {
@@ -81,9 +81,9 @@ function createMainWindow() {
 		},
 	});
 
-	if (!onProduction) {
-		appWindow.webContents.openDevTools();
-	}
+	// if (!onProduction) {
+	appWindow.webContents.openDevTools();
+	// }
 
 	appWindow.loadURL(
 		!onProduction
@@ -356,9 +356,9 @@ ipcMain.on(SET_CLOSE, (e, { closeToTray }) => {
 	}
 });
 
-ipcMain.on(SET_NATIVE_TITLEBAR, (e, { useNativeTitleBar }) => {
-	if (store.get("useNativeTitleBar") !== useNativeTitleBar) {
-		store.set("useNativeTitleBar", useNativeTitleBar);
+ipcMain.on(SET_NATIVE_TITLEBAR, (e, { useNativeTitlebar }) => {
+	if (store.get("useNativeTitlebar") !== useNativeTitlebar) {
+		store.set("useNativeTitlebar", useNativeTitlebar);
 		setTimeout(() => {
 			app.relaunch();
 			app.exit();
