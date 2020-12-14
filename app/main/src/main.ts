@@ -81,9 +81,9 @@ function createMainWindow() {
 		},
 	});
 
-	// if (!onProduction) {
-	appWindow.webContents.openDevTools();
-	// }
+	if (!onProduction) {
+		appWindow.webContents.openDevTools();
+	}
 
 	appWindow.loadURL(
 		!onProduction
