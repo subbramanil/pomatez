@@ -146,6 +146,10 @@ export const StyledVolumeButton = styled.button`
 	${ControlButton};
 `;
 
+export const StyledAddButton = styled.button`
+	${ControlButton};
+`;
+
 export const StyledStrictIndicator = styled.div<{ warn?: boolean }>`
 	width: 2.8rem;
 	height: 2.8rem;
