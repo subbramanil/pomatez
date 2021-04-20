@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { StyledCurrentTaskContainer, StyledCurrentTaskWrapper } from "styles";
 
 import TaskHeader from "./FocusItem";
+import { addTask } from "../../../store/airtabledb";
 
 const PriorityCard: React.FC = () => {
 	const [currentTask, setCurrentTask] = useState("Test");
@@ -10,6 +11,7 @@ const PriorityCard: React.FC = () => {
 	const handleTask = (taskTitle: string) => {
 		console.log("Current Task is", taskTitle);
 		setCurrentTask(taskTitle);
+		addTask(taskTitle, 0, "Todo");
 	};
 
 	return (
