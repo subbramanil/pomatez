@@ -106,14 +106,10 @@ const CounterProvider: React.FC = ({ children }) => {
 	}, [timer.playing, timer.timerType, preventSleeping, allowSleeping]);
 
 	useEffect(() => {
-		let interval: number;
+		let interval: NodeJS.Timeout;
 
-		const {
-			firstBreak,
-			secondBreak,
-			thirdBreak,
-			fourthBreak,
-		} = config.specialBreaks;
+		const { firstBreak, secondBreak, thirdBreak, fourthBreak } =
+			config.specialBreaks;
 
 		if (timer.playing) {
 			interval = setInterval(() => {
@@ -219,7 +215,7 @@ const CounterProvider: React.FC = ({ children }) => {
 	]);
 
 	useEffect(() => {
-		let timerInterval: number;
+		let timerInterval: NodeJS.Timeout;
 
 		if (timer.playing) {
 			timerInterval = setInterval(() => {
