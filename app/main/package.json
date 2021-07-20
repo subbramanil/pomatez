@@ -1,6 +1,6 @@
 {
 	"name": "pomatez",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"private": true,
 	"license": "MIT",
 	"main": "./build/main.js",
@@ -38,7 +38,7 @@
 		"mac": {
 			"artifactName": "Pomatez-v${version}-mac.${ext}",
 			"category": "public.app-category.productivity",
-			"icon": "./build/assets/icon256x256.png"
+			"icon": "./build/assets/logo-dark@2x.png"
 		},
 		"win": {
 			"target": [
